@@ -7,13 +7,14 @@ const { validateLogin, validateCreateUser } = require('../middlewares/userValida
 
 const NotFoundError = require('../Errors/NotFoundError');
 const { BAD_URL } = require('../constants/message');
+const { messageRouter } = require('./messages');
 
 routers.post('/signup', validateCreateUser, createUser);
 routers.post('/signin', validateLogin, login);
 routers.post('/signout', auth, logout);
 
-// routers.use('/movies', auth, movieRouter);
 routers.use('/users', auth, userRouter);
+routers.use('/messages', auth, messageRouter);
 
 routers.use(auth, (req, res, next) => {
   next(new NotFoundError(BAD_URL));

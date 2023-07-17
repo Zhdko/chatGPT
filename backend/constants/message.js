@@ -6,6 +6,8 @@ const SUCCESSFUL_LOGOUT = 'logout of the system';
 const USER_NOT_FOUND = 'user not found';
 const BAD_URL = 'there is no such URL';
 const SERVER_ERROR = 'server error';
+const MESSAGES_NOT_FOUND = 'no messages found';
+const FORBIDDEN_DELETE_MESSAGE = 'you cannot delete messages from other users';
 
 const VALIDATION_ERROR = {
   REQUIRED_ERROR: 'Поле {#label} является обязательным',
@@ -14,6 +16,8 @@ const VALIDATION_ERROR = {
 };
 
 module.exports = {
+  FORBIDDEN_DELETE_MESSAGE,
+  MESSAGES_NOT_FOUND,
   VALIDATION_ERROR,
   WRONG_USER_DATA,
   NOT_AUTHORIZED,
