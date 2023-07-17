@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { urlRegExp, BAD_URL } = require('../utils/constants');
 
 const messageSchema = new mongoose.Schema({
   question: {
@@ -11,9 +10,13 @@ const messageSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Number,
-    required: true,
+    type: Date,
+    default: Date.now(),
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
   },
 });
 
-module.exports = mongoose.model('movie', movieSchema);
+module.exports = mongoose.model('message', messageSchema);
