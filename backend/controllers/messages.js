@@ -1,7 +1,10 @@
-const ConflictError = require('../Errors/ConflictError');
-const NotFoundError = require('../Errors/NotFoundError');
-const { MESSAGES_NOT_FOUND, FORBIDDEN_DELETE_MESSAGE } = require('../constants/message');
-const Message = require('../models/message');
+const ConflictError = require("../Errors/ConflictError");
+const NotFoundError = require("../Errors/NotFoundError");
+const {
+  MESSAGES_NOT_FOUND,
+  FORBIDDEN_DELETE_MESSAGE,
+} = require("../constants/message");
+const Message = require("../models/message");
 
 const getAllMessages = (req, res, next) => {
   const owner = req.user._id;
@@ -28,7 +31,7 @@ const createMessage = (req, res, next) => {
     owner: messageOwner,
   }).then((message) => {
     message
-      .populate('owner')
+      .populate("owner")
       .then((messageInfo) => res.status(201).send(messageInfo))
       .catch(next);
   });
