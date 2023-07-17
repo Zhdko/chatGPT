@@ -1,0 +1,13 @@
+.btn_action_submit {
+  padding: 12px;
+  background: var(--accent-color);
+  color: var(--secondary-text);
+  font-family: var(--main-font);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  transition: background 0.3s linear;
+}
+
+.btn_action_submit:disabled {
+  background: var(--fade);
+}

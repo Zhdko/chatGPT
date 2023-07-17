@@ -1,0 +1,11 @@
+:root {
+  --main-font: 'Roboto', Arial, sans-serif;
+  --accent-color: #0085ff;
+  --primary-text: #222;
+  --fade: #aaa;
+  --secondary-text: #fff;
+  --text-error: #f00;
+  --font-size-s: 16px;
+  --font-size-xs: 10px;
+  --font-size-m: 20px;
+}

@@ -1,12 +1,17 @@
-const bcrypt = require('bcryptjs');
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
-const RegistrationError = require('../Errors/RegistrationError');
-const { EMAIL_IS_USED, BAD_REQUEST, SUCCESSFUL_LOGOUT, USER_NOT_FOUND } = require('../constants/message');
-const { secretKey } = require('../config');
-const NotFoundError = require('../Errors/NotFoundError');
-const RequestError = require('../Errors/RequestError');
+const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
+const RegistrationError = require("../Errors/RegistrationError");
+const {
+  EMAIL_IS_USED,
+  BAD_REQUEST,
+  SUCCESSFUL_LOGOUT,
+  USER_NOT_FOUND,
+} = require("../constants/message");
+const { secretKey } = require("../config");
+const NotFoundError = require("../Errors/NotFoundError");
+const RequestError = require("../Errors/RequestError");
 
 const createUser = (req, res, next) => {
   const { email, password } = req.body;
@@ -34,11 +39,11 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user.id }, secretKey, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user.id }, secretKey, { expiresIn: "7d" });
       res
-        .cookie('jwt', token, {
+        .cookie("jwt", token, {
           maxAge: 3600000 * 24 * 7,
-          sameSite: 'none',
+          sameSite: "none",
           httpOnly: true,
           secure: true,
         })
@@ -48,7 +53,7 @@ const login = (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie('jwt');
+  res.clearCookie("jwt");
   res.status(200).send({ message: SUCCESSFUL_LOGOUT });
   res.end();
 };

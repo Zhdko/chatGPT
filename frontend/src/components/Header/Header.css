@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  gap: 10px;
+  padding: 36px 24px;
+  background-color: var(--accent-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.header__title {
+  margin: 0;
+  font-family: var(--main-font);
+  font-size: var(--font-size-m);
+  color: var(--secondary-text);
+  font-weight: 400;
+}
+
+.header__link {
+  font-family: var(--main-font);
+  font-size: var(--font-size-s);
+  color: var(--secondary-text);
+  font-weight: 400;
+}
