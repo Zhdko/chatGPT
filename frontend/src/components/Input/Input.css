@@ -1,0 +1,35 @@
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input__field {
+  padding: 12px;
+  border: 1px solid var(--accent-color);
+  font-family: var(--main-font);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  color: var(--primary-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input__field:invalid {
+  color: var(--text-error);
+}
+
+.input__field:focus {
+  outline: none;
+}
+
+.input__field::placeholder {
+  color: var(--fade);
+}
+
+.error {
+  font-family: var(--main-font);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  color: var(--text-error);
+  text-align: center;
+}
