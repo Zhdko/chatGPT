@@ -4,6 +4,7 @@ import './App.css';
 import { Authorization } from '../Authorization/Authorization';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import * as auth from '../../utils/auth';
+import { Chat } from '../Chat/Chat';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -67,11 +68,16 @@ function App() {
     }
   }
 
+  function handleMessage(question) {
+    console.log(question);
+  }
+
   return (
     <div className='page'>
       <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <Routes>
         <Route path='/' element={<Authorization handleRegister={handleRegister} handleLogin={handleLogin} />} />
+        <Route path='/chat' element={<Chat onSubmit={handleMessage} />} />
       </Routes>
     </div>
   );
